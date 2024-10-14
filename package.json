@@ -1,0 +1,17 @@
+{
+  "name": "xyks-helper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@meadowsjared/robotjs": "^0.6.26",
+    "node-screenshots": "^0.2.1",
+    "tesseract.js": "^5.1.1"
+  }
+}
