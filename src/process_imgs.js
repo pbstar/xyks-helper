@@ -1,15 +1,23 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
+import { fileURLToPath } from 'url';
 const fs = require("fs");
+const path = require("path");
 const Tesseract = require('tesseract.js');
+const __filename = fileURLToPath(import.meta.url);  
+const __dirname = path.dirname(__filename);
+const dirPath = path.join(__dirname, 'imgs');
 export default function processImgs(img, items) {
   return new Promise((resolve, reject) => {
     let okNumber = 0;
     items.forEach((item, index) => {
       let newImage = img.cropSync(item.x, item.y, item.width, item.height);
-      fs.writeFileSync(`./imgs/${index}.png`, newImage.toPngSync());
+      if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath);
+      }
+      fs.writeFileSync(`./src/imgs/${index}.png`, newImage.toPngSync());
       Tesseract.recognize(
-        `./imgs/${index}.png`,
+        `./src/imgs/${index}.png`,
         'eng', // 语言代码
       ).then(({ data: { text } }) => {
         // 去掉空格换行符号等
