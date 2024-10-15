@@ -7,6 +7,8 @@ const Tesseract = require('tesseract.js');
 const __filename = fileURLToPath(import.meta.url);  
 const __dirname = path.dirname(__filename);
 const dirPath = path.join(__dirname, 'imgs');
+console.log(dirPath);
+
 export default function processImgs(img, items) {
   return new Promise((resolve, reject) => {
     let okNumber = 0;
