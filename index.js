@@ -46,5 +46,5 @@ if (monitors.length > 0) {
   console.log('-----------初始化完毕------------')
   setInterval(() => {
     start(monitors[0]);
-  }, 900);
+  }, 1200);
 }
